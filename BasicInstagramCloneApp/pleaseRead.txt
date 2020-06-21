@@ -1,0 +1,14 @@
+// 'self' keyword means asking for access to SW
+self.addEventListener('install',event =>
+{
+    console.log('Installing SW...', event);
+})
+
+self.addEventListener('activate',event =>
+{
+    console.log('Activating SW...', event);
+
+    // This ensure that sw is loaded or activatd correctly without any issues. You don't need this code may not in future but we have written
+    // for more surance.
+    return self.clients.claim();
+})
